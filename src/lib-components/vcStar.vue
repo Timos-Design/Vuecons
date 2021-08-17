@@ -1,5 +1,6 @@
 <template>
   <VcIconWrapper
+    :line="line"
     :fill="fill"
     :slash="slash"
     :circle="circle"

@@ -1,6 +1,7 @@
 <template>
   <svg
     class="vuecon"
+    :class="{ line: line, filled: !line }"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 100 100"
     @click="$emit('click')"
@@ -46,7 +47,11 @@
       <g
         :transform="'scale(' + scale + ')'"
         transform-origin="center"
-        fill="currentColor"
+        :fill="line ? 'none' : 'currentColor'"
+        :stroke="line ? 'currentColor' : 'none'"
+        :stroke-width="line ? strokeWidth : 0"
+        stroke-linecap="round"
+        stroke-linejoin="round"
       >
         <slot />
       </g>
@@ -67,14 +72,14 @@ import VcIconMixin from '@/vcIconMixin.vue';
 export default Vue.extend({
   mixins: [VcIconMixin],
   name: 'VcIconWrapper',
-  data: function () {
+  data: function() {
     return {
       id: this.gId(),
     };
   },
   methods: {
     gId() {
-      var S4 = function () {
+      var S4 = function() {
         return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
       };
       return S4() + S4() + S4() + S4() + S4() + S4() + S4() + S4() + S4();
