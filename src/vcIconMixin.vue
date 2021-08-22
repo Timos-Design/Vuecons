@@ -4,10 +4,6 @@ import Vue from 'vue';
 export default Vue.extend({
   name: 'vcIconMixin',
   props: {
-    line: {
-      type: Boolean,
-      default: false,
-    },
     fill: {
       type: Boolean,
       default: false,
@@ -28,6 +24,14 @@ export default Vue.extend({
       type: Boolean,
       default: false,
     },
+    hierarchical: {
+      type: Boolean,
+      default: false,
+    },
+    palette: {
+      type: Array,
+      default: undefined,
+    },
   },
   computed: {
     shape: function() {
@@ -35,22 +39,22 @@ export default Vue.extend({
     },
     scale: function() {
       // 80 / sqrt2 / 100
-      if (this.line) {
-        if (this.circle) return 0.565685424949;
-        if (this.square) return 0.8 - 0.12;
-        if (this.rect) return 0.5 - 0.12;
-        return 1 - 0.12;
-      }
       if (this.circle) return 0.565685424949;
       if (this.square) return 0.8;
       if (this.rect) return 0.5;
       return 1;
     },
-    strokeWidth: function() {
-      if (this.rect) return 12;
-      if (this.circle) return 10;
-      if (this.square) return 8;
-      return 6;
+    pal: function() {
+      return this.palette || ['currentColor'];
+    },
+    primary: function() {
+      return this.pal[0] || 'currentColor';
+    },
+    secondary: function() {
+      return this.pal[1] || this.primary;
+    },
+    tertiary: function() {
+      return this.pal[2] || this.secondary;
     },
   },
 });
