@@ -2,6 +2,10 @@
 node_modules/
 /dist/
 
+src/icons
+src/icons.min
+src/lib-components
+
 # local env files
 .env.local
 .env.*.local

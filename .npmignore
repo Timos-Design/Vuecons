@@ -15,6 +15,9 @@ vue.config.js
 .prettierrc
 .eslintrc.js
 
+src/icons
+src/icons.min
+
 dev
 build
 .env
