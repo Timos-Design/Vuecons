@@ -2,9 +2,15 @@
 import Vue from 'vue';
 // Uncomment import and local "components" registration if library is not registered globally.
 // import { VueconsSample } from '@/entry.esm';
+import * as iconComps from '@/lib-components';
 
 export default Vue.extend({
   name: 'ServeDev',
+  computed: {
+    icons: () => {
+      return Object.keys(iconComps);
+    },
+  },
   // components: {
   //  VueconsSample,
   // }
@@ -14,7 +20,9 @@ export default Vue.extend({
 <template>
   <div id="app">
     <h1>
-      <vc-pause />
+      <i v-for="i in icons" :key="i" hierarchical :is="i" />
+      <!-- {{ icons }} -->
+      <!-- <vc-pause />
       <vc-pause slash />
       <vc-pause square />
       <vc-pause square slash />
@@ -43,7 +51,7 @@ export default Vue.extend({
       <vc-pause hierarchical rect />
       <vc-pause hierarchical rect slash />
       <vc-pause hierarchical rect fill />
-      <vc-pause hierarchical rect fill slash />
+      <vc-pause hierarchical rect fill slash /> -->
     </h1>
 
     <!-- <vc-map

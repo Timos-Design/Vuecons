@@ -9,7 +9,7 @@
   },
   "description": "SVG Icon Library for Vue.js",
   "license": "MIT",
-  "homepage": "https://icons.timos.design",
+  "homepage": "https://vuecons.timos.design",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Timos-Design/Vuecons"
