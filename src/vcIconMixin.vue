@@ -39,10 +39,16 @@ export default Vue.extend({
     },
     scale: function() {
       // 80 / sqrt2 / 100
-      if (this.circle) return 0.565685424949;
-      if (this.square) return 0.8;
+      if (this.circle) return 0.55;
+      if (this.square) return 0.6;
       if (this.rect) return 0.5;
       return 1;
+    },
+    translate: function() {
+      if (this.circle) return 42.5;
+      if (this.square) return 35;
+      if (this.rect) return 50;
+      return 0;
     },
     pal: function() {
       return this.palette || ['currentColor'];

@@ -14,8 +14,7 @@
       <mask :id="'shape_' + id" v-if="shape">
         <rect x="0" y="0" width="100" height="100" fill="white" />
         <g
-          :transform="'scale(' + scale + ')'"
-          transform-origin="center"
+          :transform="`scale(${scale}) translate(${translate} ${translate})`"
           fill="black"
         >
           <slot />
@@ -38,7 +37,7 @@
         <rect v-else x="3" y="18" width="94" height="64" rx="12" />
       </g>
 
-      <g :transform="'scale(' + scale + ')'" transform-origin="center">
+      <g :transform="`scale(${scale}) translate(${translate} ${translate})`">
         <slot />
       </g>
     </g>

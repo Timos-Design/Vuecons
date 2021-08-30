@@ -20,7 +20,7 @@ export default Vue.extend({
 <template>
   <div id="app">
     <h1>
-      <i v-for="i in icons" :key="i" hierarchical :is="i" />
+      <i v-for="i in icons" :key="i" hierarchical :is="i" circle />
       <!-- {{ icons }} -->
       <!-- <vc-pause />
       <vc-pause slash />
@@ -80,5 +80,8 @@ export default Vue.extend({
 }
 h1 {
   font-size: 100px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 </style>
